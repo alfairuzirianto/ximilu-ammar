@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ExpenseController;
 use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\SaleController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HomeController;
 use App\Livewire\Admin\Dashboard\DashboardIndex;
 use App\Livewire\Admin\Product\ProductList;
 use App\Livewire\Admin\Product\ProductCreate;
@@ -28,9 +29,7 @@ use App\Models\ExpenseDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('public.home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Autentikasi
 Route::middleware('guest')->group(function () {
@@ -47,31 +46,31 @@ Route::post('/logout', function () {
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', DashboardIndex::class)->name('dashboard');
-    
+
     Route::middleware('role:admin,operator')->group(function () {
         // Products
         Route::get('products', ProductList::class)->name('products.index');
         Route::get('products/create', ProductCreate::class)->name('products.create');
         Route::get('products/{id}/edit', ProductEdit::class)->name('products.edit');
-        
+
         // Suppliers
         Route::get('suppliers', SupplierList::class)->name('suppliers.index');
         Route::get('suppliers/create', SupplierCreate::class)->name('suppliers.create');
         Route::get('suppliers/{id}', SupplierShow::class)->name('suppliers.show');
         Route::get('suppliers/{id}/edit', SupplierEdit::class)->name('suppliers.edit');
-        
+
         // Expenses
         Route::get('expenses', ExpenseList::class)->name('expenses.index');
         Route::get('expenses/create', ExpenseCreate::class)->name('expenses.create');
         Route::get('expenses/{id}', ExpenseShow::class)->name('expenses.show');
         Route::get('expenses/{id}/edit', ExpenseEdit::class)->name('expenses.edit');
-        
+
         // Sales
         Route::get('sales', SaleList::class)->name('sales.index');
         Route::get('sales/create', SaleCreate::class)->name('sales.create');
         Route::get('sales/{id}', SaleShow::class)->name('sales.show');
         Route::get('sales/{id}/edit', SaleEdit::class)->name('sales.edit');
-        
+
         // Reports
         Route::get('reports', ReportIndex::class)->name('reports.index');
 
@@ -80,7 +79,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
         Route::get('expenses/{id}/invoice-pdf', [ExpenseController::class, 'invoicePdf'])->name('expenses.invoice-pdf');
         Route::get('sales/{id}/invoice-pdf', [SaleController::class, 'invoicePdf'])->name('sales.invoice-pdf');
     });
-    
+
     Route::middleware('role:admin')->group(function () {
         Route::get('users', UserList::class)->name('users.index');
         Route::get('users/create', UserCreate::class)->name('users.create');
