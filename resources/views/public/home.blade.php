@@ -140,132 +140,22 @@
                 <h1 class="display-6 mb-4">Pilihan Menu Terbaik Kami</h1>
             </div>
             <div class="row g-4">
+                @foreach ($products as $product)
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
                         <div class="text-center p-4">
-                            <h3 class="mb-3">Dimsum Original</h3>
-                            <div class="d-inline-block border border-primary rounded-pill px-3 mb-3">Rp27.000</div>
+                            <h3 class="mb-3">{{ $product->nama }}</h3>
+                            <div class="d-inline-block border border-primary rounded-pill px-3 mb-3">{{ $product->harga_satuan }}</div>
                         </div>
                         <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/dimsum-original.png" alt="">
+                            <img class="img-fluid" src="{{ asset('storage/'. $product->gambar) }}" alt="">
                             <div class="product-overlay">
                                 <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
-                        <div class="text-center p-4">
-                            <h3 class="mb-3">Dimsum Chese</h3>
-                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp30.000</div>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/dimsum-chese.png" alt="">
-                            <div class="product-overlay">
-                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
-                        <div class="text-center p-4">
-                            <h4 class="mb-3">Dimsum Mix</h4>
-                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp29.000</div>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/dimsum-mix.png" alt="">
-                            <div class="product-overlay">
-                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
-                        <div class="text-center p-4">
-                            <h4 class="mb-3">Donat Reguler</h4>
-                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp27.000</div>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/donat-regular.png" alt="">
-                            <div class="product-overlay">
-                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
-                        <div class="text-center p-4">
-                            <h4 class="mb-3">Donat Bomboloni</h4>
-                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp20.000</div>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/donat-bomboloni.png" alt="">
-                            <div class="product-overlay">
-                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
-                        <div class="text-center p-4">
-                            <h4 class="mb-3">Donat Mini</h4>
-                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp19.000</div>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/donat-mini.png" alt="">
-                            <div class="product-overlay">
-                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
-                        <div class="text-center p-4">
-                            <h4 class="mb-3">Ximillu</h4>
-                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp19.000</div>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/ximillu.png" alt="">
-                            <div class="product-overlay">
-                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
-                        <div class="text-center p-4">
-                            <h4 class="mb-3">Nasi Uduk</h4>
-                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp6.000</div>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/nasi-uduk.png" alt="">
-                            <div class="product-overlay">
-                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
-                        <div class="text-center p-4">
-                            <h4 class="mb-3">Lupis</h4>
-                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp19.000</div>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/lupis.png" alt="">
-                            <div class="product-overlay">
-                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             </div>
         </div>
