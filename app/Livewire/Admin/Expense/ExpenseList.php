@@ -40,7 +40,7 @@ class ExpenseList extends Component
         if ($this->status) $query->where('status', $this->status);
 
         return view('livewire.admin.expense.expense-list', [
-            'expenses' => $query->latest('tanggal')->simplePaginate(10)
+            'expenses' => $query->latest()->simplePaginate(10)
         ]);
     }
 

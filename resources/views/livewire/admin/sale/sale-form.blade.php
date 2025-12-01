@@ -21,8 +21,8 @@
             <div class="mb-3">
               <label class="form-label fw-semibold">Metode</label>
               <select wire:model="metode" class="form-select">
-                @foreach(\App\Models\Sale::METODE as $key => $val)
-                <option value="{{ $key }}">{{ $val }}</option>
+                @foreach(\App\Models\Sale::METODE as $m)
+                <option value="{{ $m }}">{{ $m }}</option>
                 @endforeach
               </select>
             </div>

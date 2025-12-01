@@ -39,7 +39,7 @@ class DashboardIndex extends Component
         // Status Pembayaran Supplier
         $statusPembayaran = [
             'lunas' => Expense::where('status', 'lunas')->count(),
-            'belum_lunas' => Expense::where('status', 'pending')->count(),
+            'belum_lunas' => Expense::where('status', 'belum lunas')->count(),
         ];
 
         // Top Produk Terjual

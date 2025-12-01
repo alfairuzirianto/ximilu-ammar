@@ -10,7 +10,7 @@
   <div class="card border-0 shadow-sm mb-4">
     <div class="card-body">
       <div class="row g-3">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <input type="text" wire:model.live.debounce.300ms="search" class="form-control" placeholder="Cari invoice...">
         </div>
         <div class="col-md-3">

@@ -41,14 +41,20 @@ class ProductEdit extends Component
     {
         $validated = $this->validate();
 
+        $product = Product::find($this->productId);
+
         if ($this->gambar) {
-            if ($this->existingGambar) {
+            // Delete old image
+            if ($this->existingGambar && $this->existingGambar !== $validated['gambar']) {
                 Storage::disk('public')->delete($this->existingGambar);
             }
             $validated['gambar'] = $this->gambar->store('products', 'public');
+        } else {
+            // Preserve existing image
+            $validated['gambar'] = $this->existingGambar;
         }
 
-        Product::find($this->productId)->update($validated);
+        $product->update($validated);
         $this->dispatch('success', message: 'Produk berhasil diperbarui!');
         return $this->redirect(route('admin.products.index'), navigate: true);
     }

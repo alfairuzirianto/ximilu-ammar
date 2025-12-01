@@ -54,9 +54,15 @@
                 <a href="#products" class="nav-item nav-link">Products</a>
             </div>
             <!-- Login Button - visible on lg screens (right), in collapse menu on mobile (bottom) -->
+            @auth
+            <div class="d-flex justify-content-center pt-3 pt-lg-0">
+                <a href="{{ route('admin.dashboard') }}" class="nav-item btn btn-outline-primary border-1 rounded-pill px-4 py-2">Dashboard</a>
+            </div>
+            @else
             <div class="d-flex justify-content-center pt-3 pt-lg-0">
                 <a href="{{ route('login') }}" class="nav-item btn btn-outline-primary border-1 rounded-pill px-4 py-2">Login</a>
             </div>
+            @endauth
         </div>
     </nav>
     <!-- Navbar End -->

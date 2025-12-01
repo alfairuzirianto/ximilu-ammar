@@ -36,7 +36,7 @@ class ExpenseCreate extends Component
 
     public function addDetail()
     {
-        $this->details[] = ['supplier_item_id' => '', 'deskripsi' => '', 'jumlah' => 1, 'harga_satuan' => 0, 'subtotal' => 0];
+        $this->details[] = ['supplier_item_id' => null, 'deskripsi' => '', 'jumlah' => 1, 'harga_satuan' => 0, 'subtotal' => 0];
     }
 
     public function removeDetail($index)
@@ -53,9 +53,7 @@ class ExpenseCreate extends Component
             $item = SupplierItem::find($detail['supplier_item_id']);
             $this->details[$index]['harga_satuan'] = $item->harga_satuan;
             $this->details[$index]['subtotal'] = $item->harga_satuan * $detail['jumlah'];
-        } else {
-            // Manual calculation for non-supplier items
-            $this->details[$index]['subtotal'] = ($detail['harga_satuan'] ?? 0) * $detail['jumlah'];
+            $this->details[$index]['deskripsi'] = null;
         }
     }
 
@@ -67,6 +65,7 @@ class ExpenseCreate extends Component
             'kategori' => 'required',
             'status' => 'required',
             'details.*.jumlah' => 'required|integer|min:1',
+            'details.*.subtotal' => 'required|numeric|min:0',
         ]);
 
         $total = collect($this->details)->sum('subtotal');

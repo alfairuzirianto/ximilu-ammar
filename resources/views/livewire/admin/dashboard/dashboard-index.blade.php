@@ -113,87 +113,105 @@
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
+  var chartArusKas, chartPengeluaranKategori, chartStatusPembayaran, chartTopProduk;
+
   // Arus Kas Chart
-  var optionsArusKas = {
-    series: [{
-      name: 'Pemasukan',
-      data: @json($arusKas->pluck('pemasukan'))
-    }, {
-      name: 'Pengeluaran',
-      data: @json($arusKas->pluck('pengeluaran'))
-    }],
-    chart: { type: 'line', height: 300, toolbar: { show: false } },
-    colors: ['#10b981', '#ef4444'],
-    stroke: { width: 3, curve: 'smooth' },
-    xaxis: { categories: @json($arusKas->pluck('date')) },
-    yaxis: {
-      labels: {
-        formatter: function(val) {
-          return 'Rp ' + val.toLocaleString('id-ID');
-        }
-      }
-    },
-    legend: { position: 'top' }
-  };
-  new ApexCharts(document.querySelector("#chartArusKas"), optionsArusKas).render();
-
-  // Pengeluaran Kategori Chart
-  var optionsPengeluaranKategori = {
-    series: @json($pengeluaranKategori->pluck('total')),
-    chart: { type: 'donut', height: 250 },
-    labels: @json($pengeluaranKategori->pluck('kategori')),
-    colors: ['#DA7326', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899'],
-    legend: { position: 'bottom' },
-    plotOptions: {
-      pie: {
-        donut: {
-          labels: {
-            show: true,
-            total: {
-              show: true,
-              label: 'Total',
-              formatter: function(w) {
-                const total = w.globals.seriesTotals
-                  .map(num => Number(num)) 
-                  .reduce((a, b) => a + b, 0);
-
-                return 'Rp ' + total.toLocaleString('id-ID', {
-                  minimumFractionDigits: 0,
-                  maximumFractionDigits: 0
-                });
-              }
-            }
+    var optionsArusKas = {
+      series: [{
+        name: 'Pemasukan',
+        data: @json($arusKas->pluck('pemasukan'))
+      }, {
+        name: 'Pengeluaran',
+        data: @json($arusKas->pluck('pengeluaran'))
+      }],
+      chart: { type: 'line', height: 300, toolbar: { show: false } },
+      colors: ['#10b981', '#ef4444'],
+      stroke: { width: 3, curve: 'smooth' },
+      xaxis: { categories: @json($arusKas->pluck('date')) },
+      yaxis: {
+        labels: {
+          formatter: function(val) {
+            return 'Rp ' + val.toLocaleString('id-ID');
           }
         }
-      }
-    }
-  };
-  new ApexCharts(document.querySelector("#chartPengeluaranKategori"), optionsPengeluaranKategori).render();
+      },
+      legend: { position: 'top' }
+    };
+  
+    // Pengeluaran Kategori Chart
+    var optionsPengeluaranKategori = {
+        series: @json($pengeluaranKategori->pluck('total')->map(fn($v) => (float) $v)),
+        chart: {
+            type: 'polarArea',
+            height: 250
+        },
+        labels: @json($pengeluaranKategori->pluck('kategori')),
+        colors: ['#DA7326', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899'],
+        legend: { position: 'bottom' },
+        stroke: {
+            width: 1
+        },
+        fill: {
+            opacity: 0.8
+        },
+        tooltip: {
+            y: {
+                formatter: function (value) {
+                    return "Rp " + value.toLocaleString("id-ID");
+                }
+            }
+        }
+    };
+    
+    // Status Pembayaran Chart
+    var optionsStatusPembayaran = {
+      series: [{{ $statusPembayaran['lunas'] }}, {{ $statusPembayaran['belum_lunas'] }}],
+      chart: { type: 'pie', height: 250 },
+      labels: ['Lunas', 'Belum Lunas'],
+      colors: ['#10b981', '#f59e0b'],
+      legend: { position: 'bottom' }
+    };
+  
+    // Top Produk Chart
+    var optionsTopProduk = {
+      series: [{
+        name: 'Terjual',
+        data: @json($topProduk->pluck('total'))
+      }],
+      chart: { type: 'bar', height: 300, toolbar: { show: false } },
+      colors: ['#DA7326'],
+      plotOptions: {
+        bar: { horizontal: true, borderRadius: 4 }
+      },
+      xaxis: { categories: @json($topProduk->pluck('nama')) },
+      dataLabels: { enabled: false }
+    };
 
-  // Status Pembayaran Chart
-  var optionsStatusPembayaran = {
-    series: [{{ $statusPembayaran['lunas'] }}, {{ $statusPembayaran['belum_lunas'] }}],
-    chart: { type: 'pie', height: 250 },
-    labels: ['Lunas', 'Belum Lunas'],
-    colors: ['#10b981', '#f59e0b'],
-    legend: { position: 'bottom' }
-  };
-  new ApexCharts(document.querySelector("#chartStatusPembayaran"), optionsStatusPembayaran).render();
+  function initCharts() {
+    if (chartArusKas) { chartArusKas.destroy(); }
+    if (chartPengeluaranKategori) { chartPengeluaranKategori.destroy(); }
+    if (chartStatusPembayaran) { chartStatusPembayaran.destroy(); }
+    if (chartTopProduk) { chartTopProduk.destroy(); }
 
-  // Top Produk Chart
-  var optionsTopProduk = {
-    series: [{
-      name: 'Terjual',
-      data: @json($topProduk->pluck('total'))
-    }],
-    chart: { type: 'bar', height: 300, toolbar: { show: false } },
-    colors: ['#DA7326'],
-    plotOptions: {
-      bar: { horizontal: true, borderRadius: 4 }
-    },
-    xaxis: { categories: @json($topProduk->pluck('nama')) },
-    dataLabels: { enabled: false }
-  };
-  new ApexCharts(document.querySelector("#chartTopProduk"), optionsTopProduk).render();
+    chartArusKas = new ApexCharts(document.querySelector("#chartArusKas"), optionsArusKas);
+    chartArusKas.render();
+
+    chartPengeluaranKategori = new ApexCharts(document.querySelector("#chartPengeluaranKategori"), optionsPengeluaranKategori);
+    chartPengeluaranKategori.render();
+
+    chartStatusPembayaran = new ApexCharts(document.querySelector("#chartStatusPembayaran"), optionsStatusPembayaran);
+    chartStatusPembayaran.render();
+
+    chartTopProduk = new ApexCharts(document.querySelector("#chartTopProduk"), optionsTopProduk);
+    chartTopProduk.render();
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+      initCharts();
+  });
+
+  document.addEventListener("livewire:navigated", function () {
+      initCharts();
+  });
 </script>
 @endpush

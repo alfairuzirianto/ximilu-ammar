@@ -39,6 +39,7 @@
               </select>
             </div>
             @endif
+            @isset($expenseId)
             <div class="mb-3">
               <label class="form-label fw-semibold">Status</label>
               <select wire:model="status" class="form-select">
@@ -47,6 +48,7 @@
                 @endforeach
               </select>
             </div>
+            @endisset
           </div>
         </div>
       </div>
@@ -69,8 +71,8 @@
                 </button>
               </div>
               <div class="row">
-                @if($supplier_id && $supplierItems->count())
-                <div class="col-md-6 mb-2">
+                @if($supplier_id)
+                <div class="col-md-12 mb-2">
                   <label class="form-label">Item</label>
                   <select wire:model="details.{{ $index }}.supplier_item_id" wire:change="calculateSubtotal({{ $index }})" class="form-select">
                     <option value="">Pilih Item</option>
@@ -80,18 +82,26 @@
                   </select>
                 </div>
                 @endif
+                @if($kategori == 'Pembelian Bahan')
                 <div class="col-md-6 mb-2">
+                    <label class="form-label">Jumlah</label>
+                    <input type="number" wire:model="details.{{ $index }}.jumlah" wire:change="calculateSubtotal({{ $index }})" class="form-control">
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label class="form-label">Subtotal</label>
+                    <input type="number" wire:model="details.{{ $index }}.subtotal" class="form-control" readonly>
+                </div>
+                @else
+                <div class="col-md-12 mb-2">
                   <label class="form-label">Deskripsi</label>
                   <input type="text" wire:model="details.{{ $index }}.deskripsi" class="form-control">
                 </div>
-                <div class="col-md-6 mb-2">
-                  <label class="form-label">Jumlah</label>
-                  <input type="number" wire:model="details.{{ $index }}.jumlah" wire:change="calculateSubtotal({{ $index }})" class="form-control">
+                <div class="col-md-12 mb-2">
+                    <label class="form-label">Nominal</label>
+                    <input type="number" wire:model="details.{{ $index }}.subtotal" class="form-control">
                 </div>
-                <div class="col-md-6 mb-2">
-                  <label class="form-label">Subtotal</label>
-                  <input type="number" wire:model="details.{{ $index }}.subtotal" class="form-control" readonly>
-                </div>
+                @endif
               </div>
             </div>
             @endforeach
