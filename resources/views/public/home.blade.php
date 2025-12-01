@@ -14,7 +14,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -66,44 +66,32 @@
     <div class="container-fluid p-0 pb-5 wow fadeIn min-vh-100" data-wow-delay="0.1s">
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="{{ asset('img/carousel-1.jpg') }}" alt="" style="height:100vh; object-fit:cover; width:100%;">
-                <div class="owl-carousel-inner">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8 text-center">
-                                <h1 class="display-1 text-light mb-4 animated slideInDown">Ximilu Ammar</h1>
-                                <p class="text-light fs-5 mb-4 pb-3">Vero elitr justo clita lorem. Ipsum dolor sed stet sit diam rebum ipsum.</p>
-                                <a href="https://linktr.ee/andace19" class="btn btn-primary rounded-pill py-3 px-5">Pesan Sekarang!</a>
-                            </div>
+                <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: #ffe8ba; z-index: 1;"></div>
+                <div class="container position-relative" style="z-index: 2; height: 95vh; display: flex; align-items: center;">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 text-center">
+                            <img class="img-fluid rounded" src="{{ asset('img/profile.png') }}" alt="Small Image" style="max-width: 800%; height: auto;">
+                        </div>
+                        <div class="col-md-8">
+                            <h1 class="display-4 text-dark mb-4">Enaknya Bikin Mood Naik</h1>
+                            <p class="text-dark fs-5 mb-4">Ximilu Ammar adalah UMKM kuliner yang menyediakan berbagai pilihan menu seperti dimsum mentai, ximilu, donat, croffle, dan aneka camilan lainnya, yang seluruhnya diolah dari bahan berkualitas dengan proses pembuatan higienis untuk menghadirkan produk yang fresh dan lezat. Seiring perkembangan usaha, kami menerapkan pengelolaan yang lebih terstruktur agar kualitas produk dan pelayanan tetap terjaga, serta terus berinovasi agar dapat memberikan pengalaman kuliner yang memuaskan, cepat, dan terpercaya bagi setiap pelanggan.</p>
+                            <a href="https://linktr.ee/andace19" class="btn btn-primary rounded-pill py-3 px-5">Pesan Sekarang!</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="{{ asset('img/carousel-2.jpg') }}" alt="" style="height:100vh; object-fit:cover; width:100%;">
-                <div class="owl-carousel-inner">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8 text-center">
-                                <h1 class="display-1 text-light mb-4 animated slideInDown">Ximilu Ammar</h1>
-                                <p class="text-light fs-5 mb-4 pb-3">Vero elitr justo clita lorem. Ipsum dolor sed stet sit diam rebum ipsum.</p>
-                                <a href="https://linktr.ee/andace19" class="btn btn-primary rounded-pill py-3 px-5">Pesan Sekarang!</a>
-                            </div>
+                <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: #ffe8ba; z-index: 1;"></div>
+                <div class="container position-relative" style="z-index: 2; height: 95vh; display: flex; align-items: center;">
+
+                    <div class="row mt-4">
+                        <div class="col-12 text-center">
+                            <h1 class="display-4 text-dark mb-4">Dari Satu Gerai, Tumbuh Jadi Puluhan</h1>
+                            <p class="text-dark fs-5 mb-4">Banyak juragan Es Teh Poci memulai dari kecil dan kini mengelola puluhan gerai berkat dukungan sistem dan merek yang kuat.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-3.jpg" alt="" style="height:100vh; object-fit:cover; width:100%;">
-                <div class="owl-carousel-inner">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8 text-center">
-                                <h1 class="display-1 text-light mb-4 animated slideInDown">Ximilu Ammar</h1>
-                                <p class="text-light fs-5 mb-4 pb-3">Vero elitr justo clita lorem. Ipsum dolor sed stet sit diam rebum ipsum.</p>
-                                <a href="https://linktr.ee/andace19" class="btn btn-primary rounded-pill py-3 px-5">Pesan Sekarang!</a>
-                            </div>
-                        </div>
+                    <div class="col-md-6 text-center">
+                        <img class="img-fluid rounded" src="{{ asset('img/uni.png') }}" alt="Person 1" style="max-width: 110%; height: 110;">
                     </div>
                 </div>
             </div>
@@ -111,80 +99,32 @@
     </div>
     <!-- Carousel End -->
 
-
-    <!-- Facts Start -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="fact-item bg-light rounded text-center h-100 p-5">
-                        <i class="fa fa-certificate fa-4x text-primary mb-4"></i>
-                        <p class="mb-2">Years Experience</p>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">50</h1>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="fact-item bg-light rounded text-center h-100 p-5">
-                        <i class="fa fa-users fa-4x text-primary mb-4"></i>
-                        <p class="mb-2">Skilled Professionals</p>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">175</h1>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="fact-item bg-light rounded text-center h-100 p-5">
-                        <i class="fa fa-bread-slice fa-4x text-primary mb-4"></i>
-                        <p class="mb-2">Total Products</p>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">135</h1>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeIn" data-wow-delay="0.7s">
-                    <div class="fact-item bg-light rounded text-center h-100 p-5">
-                        <i class="fa fa-cart-plus fa-4x text-primary mb-4"></i>
-                        <p class="mb-2">Order Everyday</p>
-                        <h1 class="display-5 mb-0" data-toggle="counter-up">9357</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Facts End -->
-
-
     <!-- About Start -->
     <div class="container-xxl py-6" id="about">
         <div class="container">
             <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="row img-twice position-relative h-100">
-                        <div class="col-6">
-                            <img class="img-fluid rounded" src="img/about-1.jpg" alt="">
-                        </div>
-                        <div class="col-6 align-self-end">
-                            <img class="img-fluid rounded" src="img/about-2.jpg" alt="">
-                        </div>
-                    </div>
+                <div class="col-lg-6 wow fadeInUp text-center" data-wow-delay="0.1s">
+                    <img class="img-fluid rounded" src="img/profile_about.png" alt="" style="max-width: 80%; height: auto;">
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="h-100">
-                        <p class="text-primary text-uppercase mb-2">// About Us</p>
-                        <h1 class="display-6 mb-4">We Bake Every Item From The Core Of Our Hearts</h1>
-                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <h1 class="display-6 mb-4">Menghadirkan Rasa Terbaik Melalui Proses yang Berkualitas</h1>
+                        <p>Ximilu Ammar adalah UMKM kuliner yang menyajikan berbagai pilihan menu seperti dimsum mentai, ximilu, donat, croffle, dan aneka camilan lainnya. Dengan penggunaan bahan berkualitas dan proses pembuatan yang higienis, kami berkomitmen menghadirkan produk yang fresh dan lezat untuk setiap pelanggan.</p>
+                        <p>Untuk mendukung operasional yang semakin berkembang, kami menerapkan pengelolaan yang lebih terstruktur sehingga kualitas produk dan pelayanan tetap terjaga. Kami terus berinovasi agar dapat memberikan pengalaman kuliner yang memuaskan dan terpercaya.</p>
                         <div class="row g-2 mb-4">
                             <div class="col-sm-6">
-                                <i class="fa fa-check text-primary me-2"></i>Quality Products
+                                <i class="fa fa-check text-primary me-2"></i>Produk Berkualitas
                             </div>
                             <div class="col-sm-6">
-                                <i class="fa fa-check text-primary me-2"></i>Custom Products
+                                <i class="fa fa-check text-primary me-2"></i>Segar & Buatan Sendiri
                             </div>
                             <div class="col-sm-6">
                                 <i class="fa fa-check text-primary me-2"></i>Online Order
                             </div>
                             <div class="col-sm-6">
-                                <i class="fa fa-check text-primary me-2"></i>Home Delivery
+                                <i class="fa fa-check text-primary me-2"></i>Pelayanan Cepat
                             </div>
                         </div>
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="">Read More</a>
                     </div>
                 </div>
             </div>
@@ -196,36 +136,18 @@
     <!-- Product Start -->
     <div class="container-xxl bg-light my-6 py-6 pt-0">
         <div class="container">
-            <div class="bg-primary text-light rounded-bottom p-5 my-6 mt-0 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="row g-4 align-items-center">
-                    <div class="col-lg-6">
-                        <h1 class="display-4 text-light mb-0">The Best Bakery In Your City</h1>
-                    </div>
-                    <div class="col-lg-6 text-lg-end">
-                        <div class="d-inline-flex align-items-center text-start">
-                            <i class="fa fa-phone-alt fa-4x flex-shrink-0"></i>
-                            <div class="ms-4">
-                                <p class="fs-5 fw-bold mb-0">Call Us</p>
-                                <p class="fs-1 fw-bold mb-0">+012 345 6789</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;" id="products">
-                <p class="text-primary text-uppercase mb-2">// Bakery Products</p>
-                <h1 class="display-6 mb-4">Explore The Categories Of Our Bakery Products</h1>
+                <h1 class="display-6 mb-4">Pilihan Menu Terbaik Kami</h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
                         <div class="text-center p-4">
-                            <div class="d-inline-block border border-primary rounded-pill px-3 mb-3">$11 - $99</div>
-                            <h3 class="mb-3">Cake</h3>
-                            <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
+                            <h3 class="mb-3">Dimsum Original</h3>
+                            <div class="d-inline-block border border-primary rounded-pill px-3 mb-3">Rp27.000</div>
                         </div>
                         <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/product-1.jpg" alt="">
+                            <img class="img-fluid" src="img/dimsum-original.png" alt="">
                             <div class="product-overlay">
                                 <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
                             </div>
@@ -235,12 +157,11 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
                         <div class="text-center p-4">
-                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">$11 - $99</div>
-                            <h3 class="mb-3">Bread</h3>
-                            <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
+                            <h3 class="mb-3">Dimsum Chese</h3>
+                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp30.000</div>
                         </div>
                         <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/product-2.jpg" alt="">
+                            <img class="img-fluid" src="img/dimsum-chese.png" alt="">
                             <div class="product-overlay">
                                 <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
                             </div>
@@ -250,18 +171,102 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
                         <div class="text-center p-4">
-                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">$11 - $99</div>
-                            <h4 class="mb-3">Cookies</h4>
-                            <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
+                            <h4 class="mb-3">Dimsum Mix</h4>
+                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp29.000</div>
                         </div>
                         <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="img/product-3.jpg" alt="">
+                            <img class="img-fluid" src="img/dimsum-mix.png" alt="">
                             <div class="product-overlay">
                                 <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div class="text-center p-4">
+                            <h4 class="mb-3">Donat Reguler</h4>
+                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp27.000</div>
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="img/donat-regular.png" alt="">
+                            <div class="product-overlay">
+                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div class="text-center p-4">
+                            <h4 class="mb-3">Donat Bomboloni</h4>
+                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp20.000</div>
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="img/donat-bomboloni.png" alt="">
+                            <div class="product-overlay">
+                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div class="text-center p-4">
+                            <h4 class="mb-3">Donat Mini</h4>
+                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp19.000</div>
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="img/donat-mini.png" alt="">
+                            <div class="product-overlay">
+                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div class="text-center p-4">
+                            <h4 class="mb-3">Ximillu</h4>
+                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp19.000</div>
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="img/ximillu.png" alt="">
+                            <div class="product-overlay">
+                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div class="text-center p-4">
+                            <h4 class="mb-3">Nasi Uduk</h4>
+                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp6.000</div>
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="img/nasi-uduk.png" alt="">
+                            <div class="product-overlay">
+                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div class="text-center p-4">
+                            <h4 class="mb-3">Lupis</h4>
+                            <div class="d-inline-block border border-primary rounded-pill pt-1 px-3 mb-3">Rp19.000</div>
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="img/lupis.png" alt="">
+                            <div class="product-overlay">
+                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </div>
