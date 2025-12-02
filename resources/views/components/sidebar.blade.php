@@ -59,7 +59,6 @@
           </a>
         </li>
 
-        @can('admin')
         <li class="sidebar-item">
           <a class="sidebar-link {{ request()->routeIs('admin.reports.*') ? 'active' : '' }}" 
              href="{{ route('admin.reports.index') }}" wire:navigate>
@@ -67,6 +66,7 @@
             <span class="hide-menu ms-2">Laporan</span>
           </a>
         </li>
+        @can('admin')
         <li class="sidebar-item">
           <a class="sidebar-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}" 
              href="{{ route('admin.users.index') }}" wire:navigate>
