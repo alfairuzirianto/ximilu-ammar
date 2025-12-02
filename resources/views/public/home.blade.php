@@ -41,12 +41,16 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
-        <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
-            <h1 class="text-primary m-0">Ximilu Ammar</h1>
+        <a href="index.html" class="navbar-brand ms-4 ms-lg-0 d-flex align-items-center">
+            <img src="{{ asset(path: 'img/logo.png') }}" alt="Logo Ammar" 
+                style="height: 45px; width: auto;" class="me-2">
+            <h1 class="text-primary m-0 d-none d-sm-block">Ximilu Ammar</h1>
         </a>
+
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto p-4 p-lg-0">
                 <a href="#" class="nav-item nav-link active">Home</a>
@@ -66,6 +70,7 @@
         </div>
     </nav>
     <!-- Navbar End -->
+
 
 
     <!-- Carousel Start -->
@@ -139,56 +144,158 @@
     <!-- About End -->
 
 
-    <!-- Product Start -->
-    <div class="container-xxl bg-light my-6 py-6 pt-0">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;" id="products">
-                <h1 class="display-6 mb-4">Pilihan Menu Terbaik Kami</h1>
-            </div>
-            <div class="row g-4">
-                @foreach ($products as $product)
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
-                        <div class="text-center p-4">
-                            <h3 class="mb-3">{{ $product->nama }}</h3>
-                            <div class="d-inline-block border border-primary rounded-pill px-3 mb-3">{{ $product->harga_satuan }}</div>
-                        </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="{{ asset('storage/'. $product->gambar) }}" alt="">
-                            <div class="product-overlay">
-                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
-                            </div>
+   <!-- Product Start -->
+<div class="container-xxl bg-light my-6 py-6 pt-0">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;" id="products">
+            <h1 class="display-6 mb-4">Pilihan Menu Terbaik Kami</h1>
+        </div>
+
+        <div class="row g-4">
+            @foreach ($products as $product)
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                
+                <div class="product-item d-flex flex-column bg-white rounded shadow-sm overflow-hidden h-100">
+
+                    <!-- Nama & Harga -->
+                    <div class="text-center p-4">
+                        <h3 class="mb-3">{{ $product->nama }}</h3>
+
+                        <div class="d-inline-block border border-primary rounded-pill px-3 mb-3">
+                            Rp {{ number_format($product->harga_satuan, 0, ',', '.') }}
                         </div>
                     </div>
-                </div>
-                @endforeach
-            </div>
-            </div>
-        </div>
-    </div>
-    <!-- Product End -->
 
+                    <!-- Gambar Produk -->
+                    <div class="position-relative mt-auto">
+                        <img 
+                            src="{{ asset('storage/'. $product->gambar) }}" 
+                            class="img-fluid w-100"
+                            style="height: 260px; object-fit: contain; object-position: center; background:white;"
+                            alt="Gambar Produk {{ $product->nama }}"
+                        >
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer my-6 mb-0 py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Office Address</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <div class="product-overlay">
+                            <a class="btn btn-lg-square btn-outline-light rounded-circle" href="#">
+                                <i class="fa fa-eye text-primary"></i>
+                            </a>
+                        </div>
                     </div>
+
+                </div>
+
+            </div>
+            @endforeach
+        </div>
+
+    </div>
+</div>
+<!-- Product End -->
+
+
+<!-- Footer Start -->
+<style>
+    /* Background coklat gradasi */
+    .footer-gradient {
+        background: linear-gradient(to right, #4e2a18, #6b3a24, #8b4b30);
+        color: #ffffff;
+    }
+
+    /* Link */
+    .footer-link {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .footer-link:hover {
+        text-decoration: underline;
+    }
+
+    /* Social icon circle style */
+    .social-circle {
+        width: 50px;
+        height: 50px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        color: #fff;
+        transition: 0.3s;
+    }
+
+    .social-circle:hover {
+        background: rgba(255,255,255,0.35);
+        cursor: pointer;
+    }
+</style>
+
+<div class="footer-gradient text-light py-5">
+    <div class="container">
+
+        <div class="row justify-content-between align-items-start">
+
+            <!-- Brand -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h3 class="fw-bold text-light mb-3">Ximilu Ammar</h3>
+                <p class="mb-2">Kelezatan Nusantara dalam Setiap</p>
+                <p class="mb-0">Sajian</p>
+            </div>
+
+            <!-- Contact (Sudah DIUBAH sesuai data Anda) -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h4 class="text-light mb-4">Contact</h4>
+
+                <p class="mb-2">
+                    <i class="fa fa-map-marker-alt me-2 text-light"></i>
+                    Jl. Politeknik, Bukit Lama, Kec. Ilir Bar. I,<br>
+                    Kota Palembang, Sumatera Selatan 30139
+                </p>
+
+                <p class="mb-2">
+                    <i class="fa fa-phone-alt me-2 text-light"></i>
+                    +62 822-3873-5307
+                </p>
+
+                <p class="mb-0">
+                    <i class="fab fa-instagram me-2 text-light"></i>
+                    <a href="https://www.instagram.com/dapuranda25/" target="_blank" class="text-light">
+                        @dapuranda25
+                    </a>
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h4 class="text-light mb-4">Quick Links</h4>
+                <p><a href="#" class="footer-link">Home</a></p>
+                <p><a href="#" class="footer-link">About</a></p>
+                <p><a href="#" class="footer-link">Products</a></p>
+            </div>
+
+            <!-- Social -->
+            <div class="col-lg-2 col-md-6 mb-4 text-lg-start text-center">
+                <h4 class="text-light mb-4">Follow Us</h4>
+
+                <div class="d-flex gap-3 justify-content-lg-start justify-content-center">
+                    <div>
+                        <a href="https://www.instagram.com/dapuranda25/" target="_blank" class="text-light">
+                            <div class="social-circle">
+                                <i class="fab fa-instagram"></i>
+                            </div>      
+                    </a>
+                    </div>
+
                 </div>
             </div>
+
         </div>
+
     </div>
-    <!-- Footer End -->
+</div>
+<!-- Footer End -->
+
 
 
     <!-- Copyright Start -->
