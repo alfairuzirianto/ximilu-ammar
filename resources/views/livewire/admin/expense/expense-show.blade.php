@@ -111,7 +111,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Catat Pembayaran</h5>
+          <h5 class="modal-title">Pembayaran</h5>
           <button type="button" class="btn-close" wire:click="$set('showPaymentModal', false)"></button>
         </div>
         <form wire:submit="savePayment">

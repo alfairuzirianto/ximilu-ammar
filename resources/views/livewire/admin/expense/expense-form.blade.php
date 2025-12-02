@@ -71,7 +71,7 @@
                 </button>
               </div>
               <div class="row">
-                @if($supplier_id)
+                @if($supplier_id && $kategori == 'Pembelian Bahan')
                 <div class="col-md-12 mb-2">
                   <label class="form-label">Item</label>
                   <select wire:model="details.{{ $index }}.supplier_item_id" wire:change="calculateSubtotal({{ $index }})" class="form-select">
