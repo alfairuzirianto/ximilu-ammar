@@ -145,10 +145,12 @@
 
 
    <!-- Product Start -->
-<div class="container-xxl bg-light my-6 py-6 pt-0">
+<div class="container-xxl my-6 py-6" style="background:#f7f1eb;">
     <div class="container">
-        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;" id="products">
-            <h1 class="display-6 mb-4">Pilihan Menu Terbaik Kami</h1>
+        <!-- Title -->
+        <div class="text-center mx-auto mb-5" style="max-width: 550px;">
+            <h1 class="fw-bold mb-3" style="color:#4a332a;">Pilihan Menu Terbaik Kami</h1>
+            <p class="text-muted">Nikmati berbagai produk pilihan berkualitas terbaik dari Ximilu Ammar.</p>
         </div>
 
         <div class="row g-4">
