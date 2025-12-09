@@ -68,7 +68,6 @@
           </a>
         </li>
 
-        @can('admin')
         <!-- LAPORAN -->
         <li class="sidebar-item">
           <a class="sidebar-link {{ request()->routeIs('admin.reports.*') ? 'active' : '' }}"
@@ -78,6 +77,7 @@
           </a>
         </li>
 
+        @can('admin')
         <!-- PENGGUNA -->
         <li class="sidebar-item">
           <a class="sidebar-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}"
