@@ -29,6 +29,8 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 </head>
 
 <body>
@@ -231,6 +233,11 @@
         background: rgba(255,255,255,0.35);
         cursor: pointer;
     }
+
+    #map {
+        width:100%;
+        height:20rem;
+    }
 </style>
 
 <div class="footer-gradient text-light py-5">
@@ -292,6 +299,11 @@
                 </div>
             </div>
 
+            <!-- Map -->
+            <div class="col-lg-12 col-md-6 mb-4">
+                <div id="map" class="w-full"></div>
+            </div>
+
         </div>
 
     </div>
@@ -328,6 +340,23 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script>
+        // Initialize map
+        var map = L.map('map').setView([-3.005438845889947, 104.72781033252869], 13);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        minZoom: 18,
+        attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        let marker = new L.Marker([-3.005438845889947, 104.72781033252869]);
+        marker.addTo(map);
+    </script>
+
 </body>
 
 </html>
