@@ -29,6 +29,12 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v3.9.0/maptiler-sdk.umd.min.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v3.9.0/maptiler-sdk.css" rel="stylesheet" />
+    <script src="https://cdn.maptiler.com/leaflet-maptilersdk/v4.1.0/leaflet-maptilersdk.umd.min.js"></script>
 </head>
 
 <body>
@@ -203,14 +209,63 @@
         color: #ffffff;
     }
 
+    /* Section headings */
+    .footer-heading {
+        color: white;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .footer-heading::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 3px;
+        background: #ffd700;
+    }
+
     /* Link */
     .footer-link {
         color: #ffffff;
         text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
     }
 
     .footer-link:hover {
-        text-decoration: underline;
+        color: #ffd700;
+        transform: translateX(5px);
+    }
+
+    /* Contact icons */
+    .contact-item {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: start;
+        gap: 10px;
+    }
+
+    .contact-item i {
+        margin-top: 3px;
+        font-size: 18px;
+        color: #ffd700;
+    }
+
+    /* Link */
+    .footer-link {
+        color: #ffffff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .footer-link:hover {
+        color: #ffd700;
+        transform: translateX(5px);
     }
 
     /* Social icon circle style */
@@ -231,6 +286,11 @@
         background: rgba(255,255,255,0.35);
         cursor: pointer;
     }
+
+    #map {
+        width:100%;
+        height:20rem;
+    }
 </style>
 
 <div class="footer-gradient text-light py-5">
@@ -240,27 +300,37 @@
 
             <!-- Brand -->
             <div class="col-lg-3 col-md-6 mb-4">
-                <h3 class="fw-bold text-light mb-3">Ximilu Ammar</h3>
+                <h3 class="footer-heading">Ximilu Ammar</h3>
                 <p class="mb-2">Kelezatan Nusantara dalam Setiap</p>
                 <p class="mb-0">Sajian</p>
+                <div class="mt-4">
+                    <h5 class="text-light mb-3">Follow Us</h5>
+                    <div class="d-flex gap-3">
+                        <a href="https://www.instagram.com/dapuranda25/" target="_blank" class="text-light">
+                            <div class="social-circle">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Contact (Sudah DIUBAH sesuai data Anda) -->
             <div class="col-lg-3 col-md-6 mb-4">
-                <h4 class="text-light mb-4">Contact</h4>
+                <h4 class="footer-heading">Contact</h4>
 
-                <p class="mb-2">
+                <p class="contact-item">
                     <i class="fa fa-map-marker-alt me-2 text-light"></i>
                     Jl. Politeknik, Bukit Lama, Kec. Ilir Bar. I,<br>
                     Kota Palembang, Sumatera Selatan 30139
                 </p>
 
-                <p class="mb-2">
+                <p class="contact-item">
                     <i class="fa fa-phone-alt me-2 text-light"></i>
-                    +62 822-3873-5307
+                    <a href="https://wa.me/6282238735307" class="text-light text-decoration-none">+62 822-3873-5307</a>
                 </p>
 
-                <p class="mb-0">
+                <p class="contact-item">
                     <i class="fab fa-instagram me-2 text-light"></i>
                     <a href="https://www.instagram.com/dapuranda25/" target="_blank" class="text-light">
                         @dapuranda25
@@ -269,27 +339,19 @@
             </div>
 
             <!-- Quick Links -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <h4 class="text-light mb-4">Quick Links</h4>
-                <p><a href="#" class="footer-link">Home</a></p>
-                <p><a href="#" class="footer-link">About</a></p>
-                <p><a href="#" class="footer-link">Products</a></p>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h4 class="footer-heading">Quick Links</h4>
+                <div class="d-flex flex-column gap-2">
+                    <a href="#" class="footer-link"><i class="fas fa-chevron-right me-2"></i>Home</a>
+                    <a href="#about" class="footer-link"><i class="fas fa-chevron-right me-2"></i>About</a>
+                    <a href="#products" class="footer-link"><i class="fas fa-chevron-right me-2"></i>Products</a>
+                </div>
             </div>
 
-            <!-- Social -->
-            <div class="col-lg-2 col-md-6 mb-4 text-lg-start text-center">
-                <h4 class="text-light mb-4">Follow Us</h4>
-
-                <div class="d-flex gap-3 justify-content-lg-start justify-content-center">
-                    <div>
-                        <a href="https://www.instagram.com/dapuranda25/" target="_blank" class="text-light">
-                            <div class="social-circle">
-                                <i class="fab fa-instagram"></i>
-                            </div>      
-                    </a>
-                    </div>
-
-                </div>
+            <!-- Map -->
+            <div class="col-lg-4 col-md-6">
+                <h4 class="footer-heading">Our Location</h4>
+                <div id="map"></div>
             </div>
 
         </div>
@@ -328,6 +390,67 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('js/main.js') }}"></script>
+
+    <script>
+        const latitude = -3.005438845889947;
+        const longitude = 104.72781033252869;
+
+        const map = L.map('map', {
+            center: [latitude, longitude],
+            zoom: 18,
+            zoomControl: true,
+            scrollWheelZoom: true,
+            dragging: true,
+            touchZoom: true,
+            doubleClickZoom: true
+        });
+
+        L.tileLayer('https://api.maptiler.com/maps/topo-v4/{z}/{x}/{y}.png?key={{ env('MAPS_API_KEY') }}', {
+            maxZoom: 20,
+            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+        }).addTo(map);
+
+        const customIcon = L.divIcon({
+            className: 'custom-marker',
+            html: `
+                <div style="background: #4e2a18; width: 40px; height: 40px; border-radius: 50% 50% 50% 0;
+                    transform: rotate(-45deg); border: 3px solid #ffd700; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                    display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-store" style="color: white; font-size: 16px; transform: rotate(45deg);"></i>
+                </div>
+            `,
+            iconSize: [40, 40],
+            iconAnchor: [20, 40],
+            popupAnchor: [0, -40]
+        });
+
+        let marker = new L.Marker([latitude, longitude], { icon: customIcon });
+        marker.addTo(map);
+
+        marker.bindPopup(`
+            <div style="text-align: center; padding: 10px;">
+                <h5 style="margin: 0 0 10px 0; color: #ffd700;"><i class="fas fa-map-marker-alt"></i> Ximilu Ammar</h5>
+                <p style="margin: 0 0 10px 0; font-size: 13px;">Jl. Politeknik, Bukit Lama</p>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}" 
+                target="_blank" 
+                style="
+                    background: #ffd700;
+                    color: #4e2a18;
+                    padding: 8px 15px;
+                    border-radius: 20px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    display: inline-block;
+                    margin-top: 5px;
+                ">
+                    <i class="fas fa-directions"></i> Get Directions
+                </a>
+            </div>
+        `, {
+            maxWidth: 250
+        });
+    </script>
+
 </body>
 
 </html>
